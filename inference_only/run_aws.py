@@ -1,0 +1,70 @@
+from automatic_annotation_pipeline import annotate
+import os
+from book_of_whales import make_book_of_whales
+
+dir_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+audio_path = os.path.join(dir_root, "sample_data", "sw061b001.wav")
+annotation_output_path = os.path.join(dir_root, "results", "sw061b001_annotations.csv")
+book_of_whales_output_path = os.path.join(dir_root, "results", "sw061b001_book_of_whales.pdf")
+
+# Phase 2 predictions with a confidence above this threshold will be in the final output. Default value is 0.5.
+prediction_th = 0.5 
+
+# Windows with a phase 1 prediction confidence above this threshold will be passed to phase 2. Default value is 0.7.
+sending_th = 0.7 
+
+# Path to the checkpoint for the SoundNet model used in phase 1. Default value is "phase_1_checkpoints/phase_1_soundnet.pt".
+path_to_phase_1_soundnet_checkpoint=os.path.join(dir_root, "phase_1_checkpoints/phase_1_soundnet.pt")
+
+# Path to the checkpoint for the MLP model used in phase 1. Default value is "phase_1_checkpoints/phase_1_mlp.pt".
+path_to_phase_1_mlp_checkpoint=os.path.join(dir_root, "phase_1_checkpoints/phase_1_mlp.pt")
+
+# Path to the checkpoint for the SoundNet model used in phase 2. Default value is "phase_2_checkpointss/phase_2_soundnet.pt".
+path_to_phase_2_soundnet_checkpoint=os.path.join(dir_root, "phase_2_checkpoints/phase_2_soundnet.pt")
+
+# Path to the checkpoint for the transformer model used in phase 2. Default value is "phase_2_checkpoints/phase_2_transformer.pt".
+path_to_phase_2_transformer_checkpoint=os.path.join(dir_root, "phase_2_checkpoints/phase_2_transformer.pt")
+
+# Path to the checkpoint for the linear model used in phase 2. Default value is "phase_2_checkpoints/phase_2_linear.pt".
+path_to_phase_2_linear_checkpoint=os.path.join(dir_root, "phase_2_checkpoints/phase_2_linear.pt")
+
+# Path to the checkpoint for the coda model used in phase 2. Default value is "phase_2_checkpoints/phase_2_coda.pt".
+path_to_phase_2_coda_checkpoint=os.path.join(dir_root, "phase_2_checkpoints/phase_2_coda.pt")
+
+# Path to the checkpoint for the whale model used in phase 2. Default value is "phase_2_checkpoints/phase_2_whale.pt".
+path_to_phase_2_whale_checkpoint=os.path.join(dir_root, "phase_2_checkpoints/phase_2_whale.pt")
+
+# If you want an additional output file with all the candidate windows found by phase 1. Default value is False.
+store_phase_1_predictions=False
+
+# If you want an additional output file with the confidences of phase 1 for every window. Default value is False.
+store_all_phase_1_confidences=False
+
+# If you want an additional output file with the raw output of phase 2. Default value is False.
+store_phase_2_output=False
+
+# If you want to print phase 1 outputs as they are calculated. Default value is False.
+print_p1_output = False
+
+# If you want to print phase 2 outputs as they are calculated. Default value is False.
+print_p2_output = False
+
+annotate(   input_file=audio_path,
+            output_file=annotation_output_path,
+            prediction_th=prediction_th,
+            sending_th=sending_th,
+            path_to_phase_1_soundnet_checkpoint=path_to_phase_1_soundnet_checkpoint,
+            path_to_phase_1_mlp_checkpoint=path_to_phase_1_mlp_checkpoint,
+            path_to_phase_2_soundnet_checkpoint=path_to_phase_2_soundnet_checkpoint,
+            path_to_phase_2_transformer_checkpoint=path_to_phase_2_transformer_checkpoint,
+            path_to_phase_2_linear_checkpoint=path_to_phase_2_linear_checkpoint,
+            path_to_phase_2_coda_checkpoint=path_to_phase_2_coda_checkpoint,
+            path_to_phase_2_whale_checkpoint=path_to_phase_2_whale_checkpoint,
+            store_phase_1_predictions=store_phase_1_predictions,
+            store_all_phase_1_confidences=store_all_phase_1_confidences,
+            store_phase_2_output=store_phase_2_output,
+            print_p1_output=print_p1_output,
+            print_p2_output=print_p2_output)
+
+
+make_book_of_whales(annotation_output_path, book_of_whales_output_path)
