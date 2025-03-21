@@ -1,0 +1,13 @@
+
+__pycache__
+*.pyc
+
+
+sample_data/
+training_and_evaluation/
+results/
+environment.yml
+*.wav
+*.csv
+*.pdf
+
