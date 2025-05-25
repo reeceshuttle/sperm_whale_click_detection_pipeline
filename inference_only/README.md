@@ -1,4 +1,5 @@
 ### Running on 1 file
+
 In order to run the pipeline on a single file run the following command:
 ```
 python run_pipeline_on_file.py --input_file="[Path to the input audio file, including the file name]"
@@ -12,13 +13,14 @@ python run_pipeline_on_file.py --input_file="[Path to the file, including the fi
 If no output_file is specified the output file will be named "full_pipeline_predictions.csv" and be placed in the current folder.
 
 ### Running on an entire folder
+
 In order to run the pipeline on an entire folder run the following command:
 ```
 python run_pipeline_on_folder.py --input_folder="[Path to the folder with the input audio files]" --output_folder="[Path to folder where you want the output. Folder will be created if it doesn't exist]"
-```
 The output will have the name [Name of the file]_annotations.csv
 
 ### Settings
+
 It also possible the adjust the following settings, both when running the pipeline on a single file and on an entire folder:
 ```
 --prediction_th: Phase 2 predictions with a confidence above this threshold will be in the final output. Default value is 0.5.
@@ -58,9 +60,11 @@ It also possible the adjust the following settings, both when running the pipeli
 ```
 
 ### Example commands
+
 ```
 python run_pipeline_on_file.py --input_file="/raid/lingo/martinrm/original_data/dataset/2015/sw061b003.wav"
 ```
+
 ```
 python run_pipeline_on_folder.py --input_folder="/raid/lingo/martinrm/original_data/dataset/all_birth/" --output_folder="all_birth_outputs/"
 ```
