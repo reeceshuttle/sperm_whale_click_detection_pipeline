@@ -29,9 +29,9 @@ kiwisolver==1.4.8
 lazy_loader==0.4
 librosa==0.10.2.post1
 llvmlite==0.44.0
-localstack==4.2.0
-localstack-core==4.2.0
-localstack-ext==4.2.0
+# localstack==4.2.0
+# localstack-core==4.2.0
+# localstack-ext==4.2.0
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 matplotlib==3.10.1

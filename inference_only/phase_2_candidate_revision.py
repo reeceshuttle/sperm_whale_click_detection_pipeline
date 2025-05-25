@@ -34,7 +34,7 @@ def phase_2(click_candidates_df,audio,output_file,
         transformer_dataset = DatasetForTransformer(num_windows_to_send, max_context_time)
         transformer_dataset.load_file(click_candidates_df,audio)        
 
-        dataloader = DataLoader(transformer_dataset,batch_size=batch_size,shuffle=False, num_workers=20)
+        dataloader = DataLoader(transformer_dataset,batch_size=batch_size,shuffle=False, num_workers=4)
 
         model_soundnet = SoundNet().cuda()
         model_trans = ViT(unit_size=input_embedding_size, dim=1024, depth=6, heads=8, mlp_dim=2048, dim_head = 64, dropout = 0.1, emb_dropout = 0.1, max_len = num_windows_to_send+num_windows_in_context).cuda()

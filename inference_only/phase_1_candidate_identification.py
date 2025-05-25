@@ -45,7 +45,7 @@ def phase_1(full_audio,output_file,sending_th,
     batch_range = torch.arange(0,click_batch_size)
 
     click_detector_dataset = LongFileDataset(full_audio, context_radius, center_radius)
-    click_detector_dataloader = DataLoader(click_detector_dataset,batch_size=click_batch_size,shuffle=False, num_workers=20)
+    click_detector_dataloader = DataLoader(click_detector_dataset,batch_size=click_batch_size,shuffle=False, num_workers=4)
 
     print("Loading phase 1 models")
     model_soundnet = SoundNet().cuda()

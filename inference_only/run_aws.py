@@ -47,9 +47,11 @@ print_p1_output = False
 # If you want to print phase 2 outputs as they are calculated. Default value is False.
 print_p2_output = False
 
-# s3 = boto3.client('s3', region_name="us-east-1") # real, region is n. virginia where bucket is
+s3 = boto3.client('s3', 
+                  region_name="us-east-1", )
+                #   endpoint_url="https://s3.us-east-1.amazonaws.com") # real, region is n. virginia where bucket is
 # s3 = boto3.client('s3', endpoint_url="http://localhost:4566") # for non-docker local testing
-s3 = boto3.client('s3', endpoint_url="http://host.docker.internal:4566") # for docker local testing
+# s3 = boto3.client('s3', endpoint_url="http://host.docker.internal:4566") # for docker local testing
 
 
 if __name__ == "__main__":
@@ -66,8 +68,9 @@ if __name__ == "__main__":
     parsed = input_s3_key.split('/')
     prefix = '/'.join(parsed[:-1]) + '/' # note: will need to add a line to after this.
     true_filename = parsed[-1].replace('.wav', '')
-    target_prefix = prefix.replace('raw', 'martin_annotated')
-
+    target_prefix = prefix.replace('raw', 'martin_annotated') # WE EXPECT TO BE IN RAW/
+    if target_prefix == '/': # edge case where there is no prefix
+        target_prefix = ''
     print(f'{target_prefix=}')
     print(f'{true_filename=}')
 

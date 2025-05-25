@@ -10,4 +10,4 @@ environment.yml
 *.wav
 *.csv
 *.pdf
-
+.aws/

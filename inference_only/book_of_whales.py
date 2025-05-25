@@ -1,20 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import IPython
+# import IPython
 import numpy as np
 import os
-from IPython.display import Image as Image2
+# from IPython.display import Image as Image2
 from numpy import genfromtxt
-import pickle
-from IPython import embed
-from PIL import Image, ImageDraw, ImageFont
-from scipy.io import loadmat
-import seaborn as sns
-import pandas as pd
-#%matplotlib inline
-from scipy import ndimage
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-import matplotlib.patches as mpatches
+# import pickle
+# from IPython import embed
+# from PIL import Image, ImageDraw, ImageFont
+# from scipy.io import loadmat
+# import seaborn as sns
+# import pandas as pd
+# #%matplotlib inline
+# from scipy import ndimage
+# from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+# import matplotlib.patches as mpatches
 from pypdf import PdfMerger
 
 def merge(temp_path,output_path):

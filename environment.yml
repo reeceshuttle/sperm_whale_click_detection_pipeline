@@ -1,4 +1,4 @@
-name: base_two
+name: martin
 channels:
   - pytorch
   - nvidia
@@ -329,7 +329,7 @@ dependencies:
   - pyjwt=2.4.0=py310h06a4308_0
   - pylint=2.16.2=py310h06a4308_0
   - pylint-venv=2.3.0=py310h06a4308_0
-  - pyls-spyder=0.4.0=pyhd3eb1b0_0
+  # - pyls-spyder=0.4.0=pyhd3eb1b0_0
   - pyodbc=4.0.34=py310h6a678d5_0
   - pyopenssl=23.0.0=py310h06a4308_0
   - pyparsing=3.0.9=py310h06a4308_0
@@ -401,8 +401,8 @@ dependencies:
   - sphinxcontrib-jsmath=1.0.1=pyhd3eb1b0_0
   - sphinxcontrib-qthelp=1.0.3=pyhd3eb1b0_0
   - sphinxcontrib-serializinghtml=1.1.5=pyhd3eb1b0_0
-  - spyder=5.4.1=py310h06a4308_0
-  - spyder-kernels=2.4.1=py310h06a4308_0
+  # - spyder=5.4.1=py310h06a4308_0
+  # - spyder-kernels=2.4.1=py310h06a4308_0
   - sqlalchemy=1.4.39=py310h5eee18b_0
   - sqlite=3.40.1=h5082296_0
   - stack_data=0.2.0=pyhd3eb1b0_0
@@ -543,7 +543,7 @@ dependencies:
       - utm==0.7.0
       - vgg-pytorch==0.3.0
       - vl-convert-python==0.11.2
-      - wandb==0.15.5
+      # - wandb==0.15.5
       - wsproto==1.2.0
       - xgboost==1.6.1
-prefix: /raid/lingo/martinrm/anaconda3_second
+# prefix: /raid/lingo/martinrm/anaconda3_second
